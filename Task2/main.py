@@ -19,7 +19,7 @@ while (i < n-1) or not Func(a):         #Генерирует треугольн
 
 middle = len(res[-1])
 
-for i in range(len(res)):               #Выводим результат в консоль
+for i in range(len(res)):               #Выводим треугольник Серпинского в консоль
     l = len(res[i])
     print(' ' * (middle-l), end='')
     for o in range(l):
