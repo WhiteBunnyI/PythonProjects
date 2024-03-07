@@ -50,4 +50,4 @@ def task1():
 
 
 if __name__ == '__main__':
-    task3()
+    task2()
