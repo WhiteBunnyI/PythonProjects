@@ -8,5 +8,4 @@ for i in a:
     else:
         d[i] = 1
 
-for i in d:
-    print(d[i])
+print(d)
