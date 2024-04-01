@@ -2,10 +2,7 @@ from random import randint
 
 n = int(input())
 goods = ['Карандаш', 'Ручка', "Ластик", "Пенал", "Линейка"]
-purchases = []
-
-for _ in range(n):
-    purchases.append([randint(1, 10), goods[randint(0, len(goods)-1)], randint(1, 5)])
+purchases = [[randint(1, 10), goods[randint(0, len(goods)-1)], randint(1, 5)] for _ in range(n)]
 
 print(purchases)
 s = dict()
