@@ -14,12 +14,6 @@ s1_4 = {1, 2}
 s2_4 = {1, 4, 5}
 def func(s1, s2):
     return s1.issubset(s2)
-    # if len(s1) >= len(s2):
-    #     return False
-    # for i in s1:
-    #     if not i in s2:
-    #         return False
-    # return True
 
 print(func(s1, s2))
 print(func(s1_1, s2_1))

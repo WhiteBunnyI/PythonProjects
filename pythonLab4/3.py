@@ -5,11 +5,9 @@ def func(n):
     s = set()
     for _ in range(n):
         i = input()
-        if not i in s:
-            s.add(i)
-        else:
+        if i in s:
             return "REPEAT"
-
+        s.add(i)
     return "OK"
 
 
