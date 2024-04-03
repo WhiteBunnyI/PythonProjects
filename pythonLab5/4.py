@@ -11,18 +11,12 @@ with open(args[1], mode='r') as file:
 for i in json_data:
     with open(i+'.csv', mode='w') as file:
         columns = list(json_data[i][0].keys())
-        header = ''
-        for o in columns:
-            header += o+','
-        header = header[:-1]+'\n'
-
+        header = str(columns)[1:-1].replace("'", "")+'\n'
         file.write(header)
+
         for o in json_data[i]:
-            data = ''
-            for p in o:
-                data += str(o[p])+','
-            data = data[:-1]
-            file.write(data+'\n')
+            data = str(list(o.values()))[1:-1].replace("'", "")+'\n'
+            file.write(data)
 
 
 
