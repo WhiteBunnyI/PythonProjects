@@ -15,9 +15,7 @@ class CSVReader:
         if typeOut == 'bottom':
             _iter = (self.m_data[n] for n in range(len(self.m_data)-1, 0, -1))
         if typeOut == 'random':
-            _start = int(self.m_data[1][0])
-            _end = self.m_data[-1][0]
-            _iter = (random.choice(self.m_data) for _ in range(count))
+            _iter = (i for i in random.sample(self.m_data[1:], count))
 
         print(' '.join(self.m_data[0]))
         for row in range(count):
