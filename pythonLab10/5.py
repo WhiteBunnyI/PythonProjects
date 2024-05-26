@@ -6,7 +6,6 @@ from mpl_toolkits.mplot3d import Axes3D
 x = np.linspace(-5, 5, 100)
 y = np.linspace(-5, 5, 100)
 x, y = np.meshgrid(x, y)
-#z = np.random.rand(*x.shape)  # Пример данных, замените на ваши
 z = x**2 + y**2
 
 # Функция для вычисления MSE
