@@ -3,11 +3,10 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 # Создание данных
-X = np.linspace(-5, 5, 100)
-Y = np.linspace(-5, 5, 100)
+X = np.linspace(-50, 50, 1000)
+Y = np.linspace(-50, 50, 1000)
 X, Y = np.meshgrid(X, Y)
 Z = (X**2 + Y**2) / 2
-
 fig = plt.figure(figsize=(14, 6))
 
 # Первый график - обычная ось z
@@ -20,7 +19,8 @@ ax1.set_zlabel('Z')
 
 # Второй график - ось z в логарифмическом масштабе
 ax2 = fig.add_subplot(122, projection='3d')
-ax2.plot_surface(X, Y, Z, cmap='viridis')
+Z_log = Z + 1e-9
+ax2.plot_surface(X, Y, Z_log, cmap='viridis')
 ax2.set_zscale('log')
 ax2.set_title('MSE с осью z в логарифмическом масштабе')
 ax2.set_xlabel('X')
