@@ -29,7 +29,7 @@ line1, = axs['wave1'].plot(x, y1, color='blue')
 line2, = axs['wave2'].plot(x, y2, color='green')
 line3, = axs['wave3'].plot(x, y3, color='pink')
 
-# Удаляем ось
+# Удаляем ненужную ось
 fig.delaxes(axs[''])
 hideAxe(axs['param1'])
 hideAxe(axs['param2'])
