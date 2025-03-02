@@ -3,7 +3,6 @@ import math
 WORD = 'Pentium'
 BLOCKS_BITS = 32
 
-
 def insert(word: str, index: int, value: str):
     return word[:index] + value + word[index:]
 
