@@ -4,7 +4,7 @@ import itertools
 def distance(a, b):
     dist = 0
     for i in range(len(a)):
-        if a[i] != b[i] and (a[i] == '1' or b[i] == '1'):
+        if a[i] != b[i]:
             dist += 1
     return dist
 
@@ -39,7 +39,7 @@ def find_error(code, d: dict, minLen):
                 minDist = dist
             elif dist == minDist:
                 keys.append(k)
-        print(f'Ближайший коды: {keys}, расстояние: {dist}')
+        print(f'Ближайший коды: {keys}, расстояние: {minDist}')
         return
     print(f'В двоичном коде не требуется исправление ошибки')
 
@@ -85,4 +85,6 @@ d = {'и': '000000',
      'п': '110011',
      'р': '110100'}
 
+#test(d, '110100', 3)
 test(d, '000101', 3)
+

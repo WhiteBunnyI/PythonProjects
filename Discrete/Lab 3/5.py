@@ -1,7 +1,9 @@
 import math
 
+
 def IsEqual(a: float, b: float) -> bool:
     return math.isclose(a, b, rel_tol=REL_TOL)
+
 
 def GetRange(index: chr):
     current_range = (0, 0)
@@ -12,10 +14,14 @@ def GetRange(index: chr):
 
     return current_range
 
+def round(f: float):
+    pass
+
 def CalculateRange(range, index: chr):
     abs_range = GetRange(index)
-    #print(range, abs_range)
+    # print(range, abs_range)
     return (range[0] + (range[1] - range[0]) * abs_range[0], range[0] + (range[1] - range[0]) * abs_range[1])
+
 
 def CalculateWord(f: float):
     ks = list(d.keys())
@@ -27,7 +33,7 @@ def CalculateWord(f: float):
             if current_range[0] < f < current_range[1]:
                 abs_range = current_range
                 result += i
-                #print(result, i, f, ((abs_range[0] + abs_range[1]) / 2.0))
+                # print(result, i, f, ((abs_range[0] + abs_range[1]) / 2.0))
                 break
     return result
 
@@ -40,18 +46,18 @@ def convertToBin(f: float):
         result += str(zeloe)
         if IsEqual(f, 1.0):
             break
-        #print(f)
+        # print(f)
         f -= zeloe
 
     return result
+
 
 def convertToFloat(b: str):
     decimal = 0
     for i, bit in enumerate(b, 1):
         decimal += int(bit) * (2 ** -i)
-        #print(decimal, i, bit)
+        # print(decimal, i, bit)
     return decimal
-
 
 
 d = {
@@ -71,23 +77,24 @@ d = {
 # }
 
 word = 'aecdfb'
-#word = 'NPPPNMME'
+# word = 'NPPPNMME'
 
-REL_TOL = 10**-min(3, (len(word) - 1))
+REL_TOL = 10 ** -(len(word))   # Насколько точно должно вычисляться
 
 print(f'Исходное слово: {word}')
 result = (0, 1)
 for i in word:
     result = CalculateRange(result, i)
-    #print(result)
+    # print(result)
 result = (result[1] + result[0]) / 2
 print(result)
 result = convertToBin(result)
 print(f'Закодированно в: {result}')
 
 bytes = (len(result) / 8.0)
-print(f'Степень сжатия: {bytes/len(word)}\nКоэффициент сжатия: {len(word)/bytes}')
-
+koef = bytes / (len(word) * 8)
 result = convertToFloat(result)
 #print(result)
 print(f'Расшифрованное  слово: {CalculateWord(result)}')
+print()
+print(f'Степень сжатия: {koef}\nКоэффициент сжатия: {1 / koef}')

@@ -1,8 +1,5 @@
 import math
 
-WORD = 'Pentium'
-BLOCKS_BITS = 32
-
 def insert(word: str, index: int, value: str):
     return word[:index] + value + word[index:]
 
@@ -49,7 +46,7 @@ def encode(word, block_bits):
         for i in control_bits.keys():
             block = replace(block, i, str(control_bits[i] % 2))
         blocks_result.append(block)
-        #print(block)
+        # print(block)
 
     return ''.join(blocks_result)
 
@@ -60,9 +57,10 @@ def decode(binary, block_bits):
 
     control_bits_count = int(math.log(block_bits, 2)) + 1  # Кол-во контрольных битов
     for i in range(1, math.ceil(len(binary) / (block_bits + control_bits_count)) + 1):
-        blocks.append(binary[(i - 1) * (block_bits + control_bits_count): i * (block_bits + control_bits_count)])  # Разбиваем на блоки
+        blocks.append(binary[(i - 1) * (block_bits + control_bits_count): i * (
+                    block_bits + control_bits_count)])  # Разбиваем на блоки
 
-    #print(blocks)
+    # print(blocks)
     for block in blocks:
         control_bits = dict()  # key = startPos, value = bits count, then his bit
 
@@ -82,7 +80,7 @@ def decode(binary, block_bits):
                 error_pos += i + 1
 
         if error_pos != -1:
-            #error_pos += 2
+            # error_pos += 2
             block = invert_bit(block, error_pos)
         # print(block)
         print(error_pos)
@@ -94,16 +92,20 @@ def decode(binary, block_bits):
         block = res
         res = str()
         for i in range(math.ceil(len(block) / 8)):
-            res += chr(int(block[i*8:(i+1)*8], 2))
+            res += chr(int(block[i * 8:(i + 1) * 8], 2))
         blocks_result.append(res)
 
     return ''.join(blocks_result)
 
+WORD = 'Pentium'
+BLOCKS_BITS = 32
 
 control_bits_count = int(math.log(BLOCKS_BITS, 2)) + 1
 # w = encode("habr", 16)
 w = encode(WORD, BLOCKS_BITS)
+print(f'До:\t\t{w}')
 w = invert_bit(w, 4)
 w = invert_bit(w, (BLOCKS_BITS + control_bits_count) + 20)
+print(f'После:\t{w}')
 w = decode(w, BLOCKS_BITS)
 print(w)
