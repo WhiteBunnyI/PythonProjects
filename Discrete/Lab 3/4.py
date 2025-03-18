@@ -63,9 +63,13 @@ print(f'Закодированное слово: {enc}')
 print(f'Декодированное слово: {dec}')
 print()
 
+dictCount = len(code.keys())
+bitsEvenly = math.ceil(math.log2(dictCount)) * dictCount
+
 bits = 0
 for i in code:
-    bits += len(code[i])
-koef = (bits / (len(list(code.keys())) * 8)) #при равномернном кодирование исп 3 бит - неправильно подсчитан коэф
+    bits += len(code[i]) * (d[i] / 100)
+
+koef = (bits / bitsEvenly)
 
 print(f'Степень сжатия: {koef}\nКоэффициент сжатия: {1 / koef}')

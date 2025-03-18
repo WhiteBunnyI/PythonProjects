@@ -97,4 +97,17 @@ result = convertToFloat(result)
 #print(result)
 print(f'Расшифрованное  слово: {CalculateWord(result)}')
 print()
+
+
+#Рассчет сжатия и коэффициента
+dictCount = len(d.keys())
+bitsEvenly = math.ceil(math.log2(dictCount)) * dictCount
+
+s = 0
+for k in d.keys():
+    s += d[k] * math.log2(d[k])
+s = -s
+
+koef = s / bitsEvenly
+
 print(f'Степень сжатия: {koef}\nКоэффициент сжатия: {1 / koef}')
