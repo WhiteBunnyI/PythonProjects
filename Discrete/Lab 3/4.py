@@ -55,7 +55,7 @@ print()
 print(f'Коды для символов: {code}')
 print()
 
-word = 'GDEGFCABA'
+word = 'GDEGFGFCGFGABGFGFAGGG'
 
 enc = encode(word, code)
 dec = decode(enc, code)
@@ -63,6 +63,12 @@ print(f'Закодированное слово: {enc}')
 print(f'Декодированное слово: {dec}')
 print()
 
+bitsEvenly = len(word) * math.ceil(math.log2(len(code.keys())))
+bits = len(enc)
+koef = (bits / bitsEvenly)
+print(f'Степень сжатия: {koef}\nКоэффициент сжатия: {1 / koef}')
+
+exit()
 dictCount = len(code.keys())
 bitsEvenly = math.ceil(math.log2(dictCount)) * dictCount
 
