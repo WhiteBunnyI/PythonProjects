@@ -67,15 +67,3 @@ bitsEvenly = len(word) * math.ceil(math.log2(len(code.keys())))
 bits = len(enc)
 koef = (bits / bitsEvenly)
 print(f'Степень сжатия: {koef}\nКоэффициент сжатия: {1 / koef}')
-
-exit()
-dictCount = len(code.keys())
-bitsEvenly = math.ceil(math.log2(dictCount)) * dictCount
-
-bits = 0
-for i in code:
-    bits += len(code[i]) * (d[i] / 100)
-
-koef = (bits / bitsEvenly)
-
-print(f'Степень сжатия: {koef}\nКоэффициент сжатия: {1 / koef}')
