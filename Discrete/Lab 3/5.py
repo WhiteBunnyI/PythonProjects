@@ -102,7 +102,7 @@ def convertToBit(f: float):
 
     e = 0.5
     while countZeroAfterDot(e) != accuracy:
-        print(countZeroAfterDot(e), e)
+        #print(countZeroAfterDot(e), e)
         if f >= e:
             result += '1'
             f -= e
@@ -126,10 +126,10 @@ def truncate(number, decimals=0):
 
 
 d = {
-    'a': 0.20,
+    'a': 0.10,
     'b': 0.10,
     'c': 0.05,
-    'd': 0.45,
+    'd': 0.55,
     'e': 0.10,
     'f': 0.10,
 }
@@ -154,7 +154,7 @@ koef = s / bitsEvenly
 
 print(f'Степень сжатия: {koef}\nКоэффициент сжатия: {1 / koef}')
 
-word = 'aecdfbea'
+word = 'aecdfb'
 # word = 'NPPPNMME'
 
 print(f'Исходное слово: {word}')
@@ -169,12 +169,15 @@ print(f'Accuracy: {accuracy}')
 result = convertToBit(result)
 print(f'Закодированно в: {result}')
 
+
 bytes = (len(result) / 8.0)
 bytesEvenly = len(word) * 8
 koef = bytes / bytesEvenly
 result = convertToFloat(result)
 print(f'Декодированно в: {result}')
 result = truncate(result, accuracy)
+print(f'truncate: {result}')
+print(f'{math.}')
 print(f'Расшифрованное  слово: {CalculateWord(result)}')
 print()
 # Мааа гад булщит а не лаба
