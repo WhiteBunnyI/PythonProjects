@@ -15,7 +15,7 @@ def arithmetic_encode(word, probabilities):
             current_low += range_size * prob
         low = current_low
 
-    return (low + high) / 2
+    return (low + high) / 2, high-low
 
 
 def float_to_binary(number, precision=20):
@@ -46,8 +46,9 @@ probabilities = {
 }
 word = "aecdfb"
 
-encoded_value = arithmetic_encode(word, probabilities)
-binary_code = float_to_binary(encoded_value)
+encoded_value, length = arithmetic_encode(word, probabilities)
+n = math.ceil(math.log2(1/length))
+binary_code = float_to_binary(encoded_value, n)
 
 original_size = len(word)
 encoded_size = len(binary_code)

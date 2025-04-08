@@ -51,19 +51,32 @@ print(res)
 
 for i in code:
     code[i] = code[i][::-1]
-print()
-print(f'Коды для символов: {code}')
-print()
+
+
 
 word = 'GDEGFGFCGFGABGFGFAGGG'
 
 enc = encode(word, code)
 dec = decode(enc, code)
+
+bits_evenly = math.ceil(math.log2(len(code.keys())))
+
+bits_haffman = 0
+freq_sum_1 = 0
+freq_sum_2 = 0
+for i in code:
+    frequency = len(code[i]) * d[i]
+    freq_sum_1 += d[i]
+    freq_sum_2 += frequency
+
+bits_haffman = freq_sum_2 / freq_sum_1
+koef = bits_evenly / bits_haffman
+
+print()
+print(f'Коды для символов: {code}')
+print()
 print(f'Закодированное слово: {enc}')
 print(f'Декодированное слово: {dec}')
 print()
-
-bitsEvenly = len(word) * math.ceil(math.log2(len(code.keys())))
-bits = len(enc)
-koef = (bits / bitsEvenly)
-print(f'Степень сжатия: {koef}\nКоэффициент сжатия: {1 / koef}')
+print(f'Коэффициент сжатия: {koef}')
+print(f'Степень сжатия: {1/koef}')
