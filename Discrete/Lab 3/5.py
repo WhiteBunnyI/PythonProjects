@@ -130,7 +130,9 @@ bits_evenly = math.ceil(math.log2(len(d.keys())))
 entropy = 0
 for i in d:
     entropy -= d[i] * math.log2(d[i])
+
 koef = bits_evenly / entropy
+koef = bits_evenly * len(word) / len(encoded)
 
 print(f'Закодированное слово: {middle}')
 print(f'В двоичном представлении: {encoded}')

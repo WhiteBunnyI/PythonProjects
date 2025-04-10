@@ -51,10 +51,15 @@ def max_flow_min_cut(graph, source, destination):
         # Находим минимальную пропускную способность в пути(т.е. поток текущего пути)
         path_flow = float('inf')
         v = destination
+        path = []
         while v != source:
             u = parent[v]
             path_flow = min(path_flow, residual[u][v])
+            path.append(v + ' ')
             v = u
+
+        path.append('s')
+        print(''.join(path)[::-1])
 
         # Обновляем остаточную сеть
         v = destination
