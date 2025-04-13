@@ -72,6 +72,7 @@ for i in code:
 bits_haffman = freq_sum_2 / freq_sum_1
 koef = bits_evenly / bits_haffman
 
+print(f'Алгоритм Хаффмана:')
 print()
 print(f'Коды для символов: {code}')
 print()

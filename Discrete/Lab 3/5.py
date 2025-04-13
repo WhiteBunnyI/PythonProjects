@@ -134,6 +134,7 @@ for i in d:
 koef = bits_evenly / entropy
 koef = bits_evenly * len(word) / len(encoded)
 
+print(f'Арифметическое кодирование:')
 print(f'Закодированное слово: {middle}')
 print(f'В двоичном представлении: {encoded}')
 #print(f'Декодированное слово: {decoded}')
