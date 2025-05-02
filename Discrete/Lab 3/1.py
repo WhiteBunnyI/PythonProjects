@@ -97,15 +97,17 @@ def decode(binary, block_bits):
 
     return ''.join(blocks_result)
 
-WORD = 'Pentium'
+WORD = 'location'
 BLOCKS_BITS = 32
 
 control_bits_count = int(math.log(BLOCKS_BITS, 2)) + 1
 # w = encode("habr", 16)
 w = encode(WORD, BLOCKS_BITS)
 print(f'До:\t\t{w}')
-w = invert_bit(w, 4)
+w = invert_bit(w, 6)
 w = invert_bit(w, (BLOCKS_BITS + control_bits_count) + 20)
 print(f'После:\t{w}')
 w = decode(w, BLOCKS_BITS)
 print(w)
+
+print(decode('000011011010000', 32))

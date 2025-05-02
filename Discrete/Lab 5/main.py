@@ -151,7 +151,7 @@ def analyze_error_case(original_cw: int, received_word: int, codewords: List[int
 
     print("\nАнализ случая:")
     print(f"  Вес ошибки: {error_weight}")
-    print(f"  Полученное слово {'ВАЛИДНО' if is_valid else 'НЕВАЛИДНО'}")
+    #print(f"  Полученное слово {'ВАЛИДНО' if is_valid else 'НЕВАЛИДНО'}")
     print(f"  Ближайшее кодовое слово: {int_to_binary_string(closest_cw, CODEWORD_LENGTH)}")
 
     # Логика проверки

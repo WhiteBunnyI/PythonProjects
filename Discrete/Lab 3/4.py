@@ -27,16 +27,28 @@ d = {'A': 3,
      'F': 21,
      'G': 28}
 
+d = {'A': 3,
+     'B': 3,
+     'C': 7,
+     'D': 8,
+     'E': 12,
+     'F': 20,
+     'G': 21,
+     'H': 26}
+
 code = {'A': '',
         'B': '',
         'C': '',
         'D': '',
         'E': '',
         'F': '',
-        'G': ''}
+        'G': '',
+        'H': ''}
 
 # Находим коды для символов по их частоте
 res = list(d.items())
+print(res)
+print(code)
 while len(res) != 1:
     print(res)
     n = res[2:]
@@ -51,8 +63,6 @@ print(res)
 
 for i in code:
     code[i] = code[i][::-1]
-
-
 
 word = 'GDEGFGFCGFGABGFGFAGGG'
 
@@ -79,5 +89,7 @@ print()
 print(f'Закодированное слово: {enc}')
 print(f'Декодированное слово: {dec}')
 print()
+print(f"1: {freq_sum_1}")
+print(f"2: {freq_sum_2}")
 print(f'Коэффициент сжатия: {koef}')
 print(f'Степень сжатия: {1/koef}')

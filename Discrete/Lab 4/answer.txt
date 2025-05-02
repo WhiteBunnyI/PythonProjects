@@ -1,0 +1,80 @@
+T: 28   h: 228  e: 906   : 1262 c: 400  o: 557  m: 256  p: 224  u: 257
+t: 629  r: 516  s: 536  a: 634  n: 668  d: 298  f: 138  i: 667  v: 98
+y: 119  g: 208  l: 355  A: 17   b: 98   x: 16   k: 41   w: 64
+: 14
+H: 6    1: 8    9: 9    C: 14   B: 9    E: 11   2: 2    0: 7    M: 12
+U: 4    S: 14   I: 23   -: 16   N: 4    W: 8    O: 3    4: 1    7: 2
+T: 28   h: 228  e: 906   : 1262 c: 400  o: 557  m: 256  p: 224  u: 257
+t: 629  r: 516  s: 536  a: 634  n: 668  d: 298  f: 138  i: 667  v: 98
+y: 119  g: 208  l: 355  A: 17   b: 98   x: 16   k: 41   w: 64
+: 14
+H: 6    1: 8    9: 9    C: 14   B: 9    E: 11   2: 2    0: 7    M: 12
+U: 4    S: 14   I: 23   -: 16   N: 4    W: 8    O: 3    4: 1    7: 2
+L: 2    5: 1    z: 17   8: 2    P: 8    R: 5    q: 5    D: 6    j: 3
+Y: 1    Q: 1
+-------------------------------------------
+
+Th: 22  he: 80  e : 204  c: 113 co: 95  om: 80  mp: 62  pu: 54  ut: 67
+te: 114 er: 151 r : 55   s: 81  st: 62  ta: 55  an: 138 nd: 100 ds: 10
+s : 256  a: 155 as: 38   o: 57  on: 131 ne: 52  of: 40  f : 33   t: 120
+th: 87   m: 54  mo: 25  os: 14  t : 41  tr: 42  ra: 70  ns: 51  sf: 2
+fo: 32  or: 78  rm: 18  ma: 47  at: 97  ti: 136 iv: 20  ve: 47   i: 80
+in: 211 nv: 7   en: 92  nt: 85  io: 76  n : 98   h: 34  hu: 8   um: 15
+hi: 38  is: 28  to: 62  ry: 22  y : 89   r: 48  re: 88  es: 112 sh: 9
+ha: 27  ap: 15  pi: 4   ng: 110 g : 96   n: 11  ea: 38  ar: 69  rl: 7
+ly: 23   e: 63  ev: 32  sp: 14  pe: 32  ec: 49  ct: 44  od: 10  de: 44
+rn: 13   l: 33  li: 68  if: 13  fe: 7    f: 49  fr: 12  ro: 61  m : 20
+mm: 7   mu: 10  un: 28  ni: 41  ic: 69  ca: 43  d : 145 ed: 70  du: 16
+uc: 19  o : 36  al: 88  lt: 10  hc: 3   rt: 17  ai: 16  nm: 5   me: 38
+ A: 11  At: 1   it: 67  ts: 28  a : 24  el: 34  le: 73  c : 15   d: 58
+vi: 27  ce: 66  pa: 16  ab: 33  bl: 24   p: 63  pr: 35  oc: 16  ss: 28
+si: 45  da: 16  ac: 49  cc: 13  rd: 13  di: 32  ef: 7   fi: 19  ru: 10
+gf: 1   fu: 11  ul: 23  l : 63  su: 21   T: 19  bi: 15  il: 26  ty: 21
+ex: 15  xe: 3   cu: 17  pl: 23  x : 4   lc: 4   la: 32   v: 12  va: 15
+am: 12  ou: 28  nf: 4   au: 3   sk: 7   ks: 7   op: 19  ll: 24  ig: 20
+gi: 18  ag: 20  ge: 33  rk: 10  ki: 5   ad: 14  gm: 1   ft: 4   ho: 10
+ow: 21  w : 4   so: 16  ci: 28  ie: 31  et: 22  nc: 35  vo: 9   ol: 33
+lv: 3   e
+: 2     ri: 42   b: 31  ba: 9   ck: 5   k : 6   us: 30  sa: 7
+ y: 2   ye: 4   rs: 48   w: 29  wi: 16  h : 43   u: 24  ud: 5   im: 21
+oo: 6   ls: 6   ik: 10  ke: 16  rf: 9   hm: 4    H: 5   Ho: 2   we: 15
+ep: 7   pt: 8   og: 11  gr: 11  ch: 47  be: 16  eg: 10  ga: 10  ak: 3
+ 1: 8   19: 8   9t: 2   tu: 20  ur: 30   C: 9   Ch: 1    B: 5   Ba: 3
+bb: 2    E: 8   En: 4   gl: 6   em: 32  ia: 20  An: 1   na: 29  yt: 1
+gn: 7   ug: 7   gh: 8   id: 10   g: 18  dw: 4   wo: 8   ip: 7   lo: 22
+ps: 4   br: 6    2: 1   20: 2   0t: 2   aw: 1   dv: 7   sy: 8   ys: 13
+ms: 17  Ta: 1   bu: 6    M: 6   Ma: 3   by: 7   He: 2   wh: 7   se: 42
+ U: 2   US: 1   S : 2   Ce: 1   nn: 13  no: 20  ov: 9   ua: 11   I: 15
+IB: 3   BM: 3   M : 6   ny: 1   lu: 10  hn: 9   gy: 7   y
+: 2     ue: 4
+mi: 20  d-: 2   -2: 1   EN: 2   NI: 2   IA: 2   AC: 2   C : 3   El: 2
+ N: 2   Nu: 1   In: 6   Co: 4    W: 8   Wo: 3   ld: 9   Wa: 1   II: 2
+I : 4   wa: 10  ir: 12  l-: 2   -p: 2   rp: 3   po: 25   O: 1   Oc: 1
+up: 6   py: 1   yi: 2   ot: 7   lb: 1   ei: 3   ee: 13  fl: 4   xi: 2
+ib: 7   94: 1   47: 1   7 : 1   Be: 1    L: 1   La: 1   bs: 2   rc: 17
+oi: 1   lk: 1   ky: 1   uu: 1   ub: 5   sm: 4   fa: 8   kt: 3   hr: 4
+av: 4   ay: 7   pm: 1   ui: 4   95: 1   50: 1   0s: 5   mb: 5   p : 4
+xp: 6   cr: 9   iz: 16  ze: 10  tt: 2   n
+: 2     By: 1   97: 1   70: 1
+98: 2   80: 2   go: 6   eh: 1   pp: 9   Ap: 3    P: 6   PC: 2   r-: 2
+-f: 1   dl: 4   ph: 8   Mi: 1   Wi: 2   do: 5   ws: 2   n-: 5   -t: 1
+99: 1   90: 1   ob: 9   We: 2   eb: 2   b : 3   To: 1   my: 3   yr: 1
+sl: 2   ek: 1   tp: 3   dd: 3   yd: 2   s
+: 6     A : 1    k: 3   ey: 2
+CP: 2   PU: 2   U : 2   It: 3   ah: 2   tz: 1   z : 1   nu: 3   ff: 7
+tl: 3    R: 4   Ra: 1   RA: 3   AM: 3   rv: 4    q: 2   qu: 5   Un: 1
+nl: 3   dr: 5   HD: 2   DD: 2   Ds: 4   -s: 2    S: 9   SS: 2   SD: 2
+wr: 1   rb: 1   bo: 6   oa: 2   cl: 10  BI: 1   IO: 1   OS: 1   np: 3
+tO: 1   Ou: 1   Sy: 1   mw: 1   Po: 1   yb: 1   tw: 7   za: 4   Pe: 1
+Cs: 1   sc: 7   Se: 1   eq: 2   oy: 2   rg: 6   Su: 3   kl: 1   g
+: 1
+Em: 1   tc: 1   tn: 1   gs: 1   Io: 2   oT: 2   T : 3   xt: 1   bj: 1
+je: 3   l
+: 1     zi: 2   kf: 1   tf: 4   St: 1   oj: 1   E-: 1   -c: 2
+lg: 3   uy: 1   dy: 1   yn: 1   cs: 2   Me: 1   iq: 1   MR: 1   RI: 1
+CT: 1   ml: 1   cy: 6   eo: 1   nh: 1   Ph: 1   eu: 2   h-: 1   -r: 1
+Pl: 1    Y: 1   Yo: 1   uT: 1   Tu: 1   Ne: 1   ix: 1   Sp: 1   fy: 1
+i-: 1   -b: 1   -d: 1   g-: 1   -e: 2   dg: 3   Sc: 1   Cl: 1   As: 2
+hy: 1   Ar: 1   gu: 1   Lo: 1   ok: 1    Q: 1   Qu: 1   yp: 1   Ad: 2
+AI: 1   -l: 1   -m: 1   Ed: 1   dt: 1   y-: 1   yc: 1   aj: 1   ew: 1
+kn: 1   wl: 1   bt: 1
