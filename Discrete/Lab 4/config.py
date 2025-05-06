@@ -1,1 +1,1 @@
-filename = 'Discrete/Lab 4/text.txt'
+filename = 'text.txt'

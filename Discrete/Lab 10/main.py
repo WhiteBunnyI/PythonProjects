@@ -16,7 +16,7 @@ def is_int(a):
     return False
 
 
-for x in range(-10**10, 10**10):
+for x in range(-10**5, 10**5):
     y = (43111 * x - 1) / 54973
     if is_int(y):
         print(f'x: {x}, y: {y}')

@@ -52,56 +52,56 @@ def huffman(letters):
 
     return bits_enc, freq_shenon, freq_haffman, code
 
-def huffman_pairs(letters):
-    #Подготавливаем данные
-    letters = list(letters.items())
-    letters = sorted(letters, key=lambda x: x[1])
-    print(letters)
-    letters_copy = {}
+def huffman_pairs(pairs, sep='*'):
+    pairs = list(pairs.items())
+    pairs = sorted(pairs, key=lambda x: x[1])
+
     code = {}
-    for i in letters:
+    pairs_copy = {}
+    for i in pairs:
         code[i[0]] = ""
-        letters_copy[i[0]] = i[1]
-    #Составляем коды Хаффмана
-    while len(letters) != 1:
-        n = letters[2:]
-        n.append((letters[0][0] + letters[1][0], letters[0][1] + letters[1][1]))
-        n = sorted(n, key=lambda x: x[1])
-        k = 0
-        for i in range(2, len(letters[0][0]) + 1, 2):
-            pooo = letters[0][0][k:i]
-            code[pooo] += '1'
-            k = i
-        k = 0
-        for i in range(2, len(letters[0][0]) + 1, 2):
-            pooo = letters[0][0][k:i]
-            code[pooo] += '0'
-            k = i
-        letters = n
+        pairs_copy[i[0]] = i[1]
+
+    while len(pairs) != 1:
+        a, b = pairs[0], pairs[1]
+        c = (f'{a[0]}{sep}{b[0]}', a[1] + b[1])
+        pairs = pairs[2:]
+        pairs.append(c)
+        pairs = sorted(pairs, key=lambda x: x[1])
+
+        for i in a[0].split(sep):
+            code[i] += '1'
+        for i in b[0].split(sep):
+            code[i] += '0'
 
     for i in code:
         code[i] = code[i][::-1]
-        
+
+    #print(f'{len(pairs_copy)}: {pairs_copy}')
+    #print(f'{len(code)}: {code}')
+
     with open(filename, "r") as f:
         text = f.readlines()
-    
-    print(code)
-    #Кодируем текст по Хаффману
+
     text = "".join(text)
     encoded = ""
-    for i in text:
-        encoded += code[i]
+    for i in range(2, len(text), 2):
+        chr = text[i-2:i]
+        chr = chr.replace('\n', ' ')
+        if chr not in code:
+            print(f'{i}: {chr}')
+        encoded += code[chr]
 
-    #Считаем биты
+    # Считаем биты
     bits_enc = len(encoded)
 
-    #считаем кол-во информации
-    freq_all = sum(letters_copy.values())
+    # считаем кол-во информации
+    freq_all = sum(pairs_copy.values())
     freq_shenon = 0
     freq_haffman = 0
 
     for i in code:
-        p = letters_copy[i] / freq_all
+        p = pairs_copy[i] / freq_all
         freq_shenon -= p * math.log2(p)
         freq_haffman += p * len(code[i])
 
@@ -114,27 +114,26 @@ if __name__ == "__main__":
     text = "".join(text)
     
     letters, pairs = task1.file_read(filename)
-    huffman_pairs(pairs)
-    exit()
+
     bits_enc, freq_shenon, freq_haffman, code = huffman(letters)
     bits_evenly = (len(text)) * 6
     print("Посимвольно:")
+    print(code)
     print(f'Кол-во бит с равномерными кодами: {bits_evenly}')
     print(f'Кол-во бит закодированного текста: {bits_enc}')
     print(f'Шеннон: {freq_shenon:.2f}')
     print(f'Хаффман: {freq_haffman:.2f}')
     print(f'{freq_haffman:.2f} > {freq_shenon:.2f} - код не достигает теоритического минимума')
     print()
-    print(code)
     
-    print("Пары:")
-    bits_enc, freq_shenon, freq_haffman, code = huffman(pairs)
+
+    bits_enc, freq_shenon, freq_haffman, code = huffman_pairs(pairs)
     bits_evenly = (len(text)) * 6
-    
+
+    print("Пары:")
+    print(code)
     print(f'Кол-во бит с равномерными кодами: {bits_evenly}')
     print(f'Кол-во бит закодированного текста: {bits_enc}')
     print(f'Шеннон: {freq_shenon:.2f}')
     print(f'Хаффман: {freq_haffman:.2f}')
     print(f'{freq_haffman:.2f} > {freq_shenon:.2f} - код не достигает теоритического минимума')
-    print()
-    print(code)
