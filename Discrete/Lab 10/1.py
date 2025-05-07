@@ -19,12 +19,14 @@ def Evklid(a, b):
     s_prev, s = 1, 0
     t_prev, t = 0, 1
     r_prev, r = a, b
-
+    print(f'{s_prev} {t_prev} {r_prev}')
+    print(f'{s} {t} {r}')
     while r != 0:
         q = r_prev // r
         r_prev, r = r, r_prev - q * r
         s_prev, s = s, s_prev - q * s
         t_prev, t = t, t_prev - q * t
+        print(f'{s} {t} {r}')
 
     # r_prev — gcd, s_prev и t_prev — коэффициенты
     return r_prev, s_prev, t_prev
@@ -43,6 +45,10 @@ def Chain(koef):
     sign = (-1) ** (table[-1][0])
     x, y = table[-2][2] * sign, table[-2][3] * sign
 
+    print('i\ta\tp\tq')
+    for i in table:
+        print(i)
+
     return x, y
 
 
@@ -51,15 +57,17 @@ b = 54973
 
 #a,b = 157, 131
 
-x, y = Chain(Nod(a, b)[0])
+
 
 print(f'1 способ: цепные дроби')
+print(Nod(a, b)[0])
+x, y = Chain(Nod(a, b)[0])
 print(f'Частное решение: x={x}, y={y}')
 print(f'Общее решение: x={x}+{b}t, y={y}+{a}t')
 print()
 
-g, x, y = Evklid(a, b)
 print(f'2 способ: расширенный алгоритм Евклида')
+g, x, y = Evklid(a, b)
 print(f'Частное решение: x={x}, y={-y}')
 print(f'Общее решение: x={x}+{abs(b)}t, y={-y}+{abs(a)}t')
 

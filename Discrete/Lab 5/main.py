@@ -124,9 +124,9 @@ def calculate_error_capabilities(minimum_distance: int) -> Tuple[int, int]:
     return max_detectable, max_correctable
 
 
-def is_valid_codeword(received_word: int, codewords: List[int]) -> bool:
+def is_valid_codeword(received_word: int, polynomial: int) -> bool:
     """Проверяет, является ли полученное слово допустимым кодовым словом."""
-    return received_word in codewords
+    return polynomial_modulo(received_word, polynomial) == 0
 
 
 def find_closest_codeword(distorted_word: int, codewords: List[int]) -> Optional[int]:
@@ -143,19 +143,20 @@ def find_closest_codeword(distorted_word: int, codewords: List[int]) -> Optional
     return closest
 
 
-def analyze_error_case(original_cw: int, received_word: int, codewords: List[int], t_correct: int, t_detect: int, CODEWORD_LENGTH: int):
+def analyze_error_case(original_cw: int, received_word: int, codewords: List[int], t_correct: int, t_detect: int, CODEWORD_LENGTH: int, POLYNOMIAL: str):
     """Анализирует случай ошибки и выводит результаты проверки."""
-    is_valid = is_valid_codeword(received_word, codewords)
+    is_valid = is_valid_codeword(received_word, int(POLYNOMIAL, 2))
     closest_cw = find_closest_codeword(received_word, codewords)
     error_weight = count_set_bits(original_cw ^ received_word)
 
     print("\nАнализ случая:")
     print(f"  Вес ошибки: {error_weight}")
-    #print(f"  Полученное слово {'ВАЛИДНО' if is_valid else 'НЕВАЛИДНО'}")
+    print(f"  Полученное слово {'ВАЛИДНО' if is_valid else 'НЕВАЛИДНО'}")
+    print(f"  Синдром: {int_to_binary_string(polynomial_modulo(received_word, int(POLYNOMIAL, 2)), CODEWORD_LENGTH)}")
     print(f"  Ближайшее кодовое слово: {int_to_binary_string(closest_cw, CODEWORD_LENGTH)}")
 
     # Логика проверки
-    if error_weight <= t_correct:
+    if not is_valid and error_weight <= t_correct:
         status = "УСПЕШНО ИСПРАВЛЕНО" if closest_cw == original_cw else "ОШИБКА ИСПРАВЛЕНИЯ"
         print(f"  Результат: {status} (ошибка в пределах исправляемой способности)")
     elif error_weight <= t_detect:
@@ -236,7 +237,7 @@ def main() -> None:
     print(f"Кодовое слово:         {int_to_binary_string(cw_example, CODEWORD_LENGTH)}")
     print(f"Вектор ошибки:         {int_to_binary_string(error_vector, CODEWORD_LENGTH)}")
     print(f"Сообщение с ошибкой:   {int_to_binary_string(received_word, CODEWORD_LENGTH)}")
-    analyze_error_case(cw_example, received_word, all_codewords, t_correct, t_detect, CODEWORD_LENGTH)
+    analyze_error_case(cw_example, received_word, all_codewords, t_correct, t_detect, CODEWORD_LENGTH, GENERATOR_POLYNOMIAL)
 
     # Пример 2: Ошибка весом 2 (обнаруживается, но не исправляется)
     error_vector = (1 << (CODEWORD_LENGTH - 1 - 1)) ^ (1 << (CODEWORD_LENGTH - 1 - 19))
@@ -247,7 +248,7 @@ def main() -> None:
     print(f"Кодовое слово:         {int_to_binary_string(cw_example, CODEWORD_LENGTH)}")
     print(f"Вектор ошибки:         {int_to_binary_string(error_vector, CODEWORD_LENGTH)}")
     print(f"Сообщение с ошибкой:   {int_to_binary_string(received_word, CODEWORD_LENGTH)}")
-    analyze_error_case(cw_example, received_word, all_codewords, t_correct, t_detect, CODEWORD_LENGTH)
+    analyze_error_case(cw_example, received_word, all_codewords, t_correct, t_detect, CODEWORD_LENGTH, GENERATOR_POLYNOMIAL)
 
     # Пример 3: Ошибка весом 3 (превышает обнаруживающую способность)
     error_vector = (1 << (CODEWORD_LENGTH - 1 - 4)) ^ (1 << (CODEWORD_LENGTH - 1 - 6)) ^ (1 << (CODEWORD_LENGTH - 1 - 10))
@@ -258,15 +259,18 @@ def main() -> None:
     print(f"Кодовое слово:         {int_to_binary_string(cw_example, CODEWORD_LENGTH)}")
     print(f"Вектор ошибки:         {int_to_binary_string(error_vector, CODEWORD_LENGTH)}")
     print(f"Сообщение с ошибкой:   {int_to_binary_string(received_word, CODEWORD_LENGTH)}")
-    analyze_error_case(cw_example, received_word, all_codewords, t_correct, t_detect, CODEWORD_LENGTH)
-    #
-    # for i in range(CODEWORD_LENGTH):
-    #     for j in range(i + 1, CODEWORD_LENGTH):
-    #         error_vector = (1 << (CODEWORD_LENGTH - 1 - i)) ^ (1 << (CODEWORD_LENGTH - 1 - j))
-    #         received_word = cw_example ^ error_vector
-    #         reformed_word = analyze_error_case_without_print(cw_example, received_word, all_codewords, t_correct, t_detect, CODEWORD_LENGTH)
-    #         if received_word != reformed_word:
-    #             print(f'Найден вектор ошибки, который нельзя исправить: {i} + {j}')
+    analyze_error_case(cw_example, received_word, all_codewords, t_correct, t_detect, CODEWORD_LENGTH, GENERATOR_POLYNOMIAL)
+
+    # Пример 0: Ошибки нет
+    error_vector = 0
+    received_word = cw_example ^ error_vector
+
+    print("\nПример 0: Ошибки нет")
+    print(f"Исходное сообщение:    {int_to_binary_string(m_example, MESSAGE_LENGTH)}")
+    print(f"Кодовое слово:         {int_to_binary_string(cw_example, CODEWORD_LENGTH)}")
+    print(f"Вектор ошибки:         {int_to_binary_string(error_vector, CODEWORD_LENGTH)}")
+    print(f"Сообщение с ошибкой:   {int_to_binary_string(received_word, CODEWORD_LENGTH)}")
+    analyze_error_case(cw_example, received_word, all_codewords, t_correct, t_detect, CODEWORD_LENGTH, GENERATOR_POLYNOMIAL)
 
 
 if __name__ == "__main__":
